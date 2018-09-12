@@ -36,8 +36,42 @@ public class MarshmallowMonster {
 		
 	}
 
+	public String getName()
+	{
+		return name;
+	}
 	
-	public String toString()
+	public double getLegCount()
+	{
+		return legCount;
+	}
+	
+	public int getEyeCount()
+	{
+		return eyeCount;
+	}
+	
+	public boolean getHasNoses()
+	{
+		return hasNoses;
+	}
+	
+	public int getArmCount()
+	{
+		return armCount;
+	}	
+	
+	public void setName(String name)
+	{
+		this.name = name;
+		
+	}
+	
+	
+	
+	
+
+		public String toString()
 	{
 		String description = "This monster is named " + name + " and it has " + legCount + " legs..."
 				+ "its favorite thing to say is jacum is good boy";
