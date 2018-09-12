@@ -7,7 +7,10 @@ public class MarshmallowMonster {
 	private int eyeCount;
 	private boolean hasNoses;
 	private int armCount;
-	
+	public MarshmallowMonster()
+	{
+		//dont use unless you want boring monsters
+	}
 	
 	
 	
@@ -66,6 +69,42 @@ public class MarshmallowMonster {
 		this.name = name;
 		
 	}
+	
+	
+	public void setLegCount(double legCount)
+	{
+		this.legCount = legCount;
+	}
+	
+	public void setEyeCount(int eyeCount)
+	{
+		this.eyeCount = eyeCount;
+		
+	}
+	
+	public void setHasNoses(boolean hasNoses)
+	{
+		this.hasNoses = hasNoses;
+		
+	}
+	
+	public void setArmCount(int armCount)
+	{
+		this.armCount = armCount;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
