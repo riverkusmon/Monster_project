@@ -22,7 +22,7 @@ public class MonsterController {
 	
 	public void start()
 	{
-		JOptionPane.showMessageDialog(null,myMonster);
+		JOptionPane.showMessageDialog(null, myMonster);
 		
 	
 		//int armCount = inputScanner.nextInt();
