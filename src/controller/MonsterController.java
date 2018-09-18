@@ -1,19 +1,20 @@
 package controller;
-import java.util.Scanner;
-import model.MarshmallowMonster;
 
+//import java.util.Scanner;
+import model.MarshmallowMonster;
+import javax.swing.JOptionPane;
 public class MonsterController {
 	//Data member section
 	//declaration section
 	private MarshmallowMonster myMonster;
 	private MarshmallowMonster userMonster;
-	private Scanner inputScanner;
+	//private Scanner inputScanner;
 	//Constructors initialize data members!
 	public MonsterController()
 	{
 		myMonster = new MarshmallowMonster("fas", .11, 1, true, 1);	
 		userMonster = new MarshmallowMonster();
-		inputScanner = new Scanner(System.in);
+		//inputScanner = new Scanner(System.in);
 	}
 	
 	
@@ -21,40 +22,132 @@ public class MonsterController {
 	
 	public void start()
 	{
-		System.out.println(myMonster);
+		JOptionPane.showMessageDialog(null,myMonster);
 		
-		System.out.println("what is your monsters arm count");
-		int armCount = inputScanner.nextInt();
-		userMonster.setArmCount(armCount);
+	
+		//int armCount = inputScanner.nextInt();
 		
-		System.out.println("your monster has " + userMonster.getArmCount()+ " arms!");
+		String armInput = JOptionPane.showInputDialog(null, "how many arms for monster");
+		int arms = -99;
+		if (validInt(armInput))
+		{
+			arms = Integer.parseInt(armInput);
+		}
 		
-		System.out.println("what is your monsters name");
-		String name = inputScanner.nextLine();
+		boolean armAnswer = Boolean.parseBoolean(armInput);
+		userMonster.setArmCount(arms);
+		
+		if (arms > 10)
+		{
+			JOptionPane.showMessageDialog(null, "thats a lot of damage");
+		}
+		else {
+		
+		JOptionPane.showMessageDialog(null, "your monster has " + userMonster.getArmCount()+ " arms!");
+		}
+		
+		
+		
+		
+		
+		
+		
+		//------------------------------------------------------------------------------------------------
+		
+		String name = JOptionPane.showInputDialog(null, "whats its name");
+		//String name = inputScanner.nextLine();
 		userMonster.setName(name);
 		
-		System.out.println("your monster has a dumb name why would you name it " + userMonster.getName() );
-		
-		System.out.println("what is your monsters eye count");
-		int eyeCount = inputScanner.nextInt();
-		userMonster.setEyeCount(eyeCount);
-		
-		System.out.println("your monster has " + userMonster.getEyeCount()+ " eyes!");
+		JOptionPane.showMessageDialog(null, "your monster has a dumb name why would you name it " + userMonster.getName() );
+		//
 		
 		
 		
-		System.out.println("true or false your monster has a nose");
-		boolean hasNoses = inputScanner.nextBoolean();
+		String eyeInput = JOptionPane.showInputDialog(null, "what is your monsters eye count");
+		int eyes = -99;
+		if (validInt(eyeInput))
+		{
+			eyes = Integer.parseInt(eyeInput);
+		}
+		
+		boolean eyeAnswer = Boolean.parseBoolean(eyeInput);
+		userMonster.setEyeCount(eyes);
+		
+		//int eyeCount = inputScanner.nextInt();
+		userMonster.setEyeCount(eyes);
+		
+		JOptionPane.showMessageDialog(null, "your monster has " + userMonster.getEyeCount()+ " eyes!");
+		//
+		
+		
+		
+		
+		
+		//----------------------------------------------------------------------------------------------
+		String noseBoolean = JOptionPane.showInputDialog(null, "true or false your monster has a nose");
+		boolean hasNoses = Boolean.parseBoolean(noseBoolean);
 		userMonster.setHasNoses(hasNoses);
 		
-		System.out.println("does your monster have a nose " + userMonster.getHasNoses());
 		
-		System.out.println("what is your monsters leg count");
-		double legCount = inputScanner.nextDouble();
-		userMonster.setLegCount(legCount);
+		String legInput = JOptionPane.showInputDialog(null, "what is your monsters leg count (in decimals)");
+		//double legCount = inputScanner.nextDouble();
+		double legs = -99;
+		if (validDouble(legInput))
+		{
+			legs = Double.parseDouble(legInput);
+		}
+		//boolean legInput = Boolean.parseBoolean(legCount);
 		
-		System.out.println("your monster has " + userMonster.getLegCount()+ " legs!");
+		userMonster.setLegCount(legs);
+		
+		
+		
+		
+		JOptionPane.showMessageDialog(null, "your monster has " + userMonster.getLegCount()+ " legs!");
 	}
+	
+	public boolean validInt(String maybeInt)
+	{
+		boolean isValid = false;
+		
+		try 
+		{
+			Integer.parseInt(maybeInt);
+			isValid = true;
+			
+		}
+		catch (NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(null, "you need to type in a whole number");
+			
+			
+		}
+		return isValid;
+	}
+	
+	public boolean validDouble(String mightBeDouble)
+	{
+		boolean isValid = false;
+		
+		try 
+		{
+			Double.parseDouble(mightBeDouble);
+			isValid = true;
+			
+		}
+		catch (NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(null, "you need to type in a decimal number");
+			
+			
+		}
+		return isValid;
+	}
+	
+	
+	
+	
+	
 	
 	
 	
